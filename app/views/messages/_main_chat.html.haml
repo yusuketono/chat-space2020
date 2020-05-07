@@ -1,0 +1,40 @@
+.main_chat
+
+  .main_header
+    .main_header__left
+      .main_header__left__group
+        サンプル1
+      .main_header__left__member
+        Member: サンプルユーザー
+
+    = link_to "#" ,class:"main_header__right" do
+      .main_header__right__box
+        Edit
+
+  .messages
+    .message
+      .message__info
+        .message__info__user
+          サンプル
+        .message__info__date
+          2020年1月１日
+      .message__content
+        これはサンプルです
+
+    .message
+      .message__info
+        .message__info__user
+          サンプル
+        .message__info__date
+          2020年1月１日
+      .message__content
+        これはサンプルです
+
+  .main_form
+    %form.form
+      .form__contents
+        %input.form__contents__text{value:"type a message"}
+        %label.form__contents__image
+          = icon('fa','image' ,class:'icon' )
+          %input.hidden{type: 'file'}
+      %input.form__submit{type:"submit",value:"send"}
