@@ -2,12 +2,12 @@
   .side_header
     .side_header__box
       .side-header__box__left
-        サンプル
+        = current_user.name
       .side-header__box__right
         =link_to "#" do
           = icon('far', 'edit',class:"icon")
 
-        =link_to "#" do
+        =link_to edit_user_path(current_user) do
           = icon('fas', 'cog',class:"icon")
 
   .groups
