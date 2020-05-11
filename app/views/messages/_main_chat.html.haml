@@ -12,29 +12,13 @@
         Edit
 
   .messages
-    .message
-      .message__info
-        .message__info__user
-          サンプル
-        .message__info__date
-          2020年1月１日
-      .message__content
-        これはサンプルです
-
-    .message
-      .message__info
-        .message__info__user
-          サンプル
-        .message__info__date
-          2020年1月１日
-      .message__content
-        これはサンプルです
+    = render @messages
 
   .main_form
-    %form.form
+    = form_with model: [@group, @message], html: {class: "form"}, local: true do |f|
       .form__contents
-        %input.form__contents__text{value:"type a message"}
-        %label.form__contents__image
-          = icon('fa','image' ,class:'icon' )
-          %input.hidden{type: 'file'}
-      %input.form__submit{type:"submit",value:"send"}
+        = f.text_field :content, class: 'form__contents__text', placeholder: 'type a message'
+        = f.label :image, class: 'form__contents__image' do
+          = icon('far', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
