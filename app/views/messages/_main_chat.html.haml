@@ -3,11 +3,13 @@
   .main_header
     .main_header__left
       .main_header__left__group
-        サンプル1
+        =@group.name
       .main_header__left__member
-        Member: サンプルユーザー
+        Member:
+        - @group.group_users.each do |group_user| 
+          = group_user.user.name
 
-    = link_to "#" ,class:"main_header__right" do
+    = link_to edit_group_path(@group) ,class:"main_header__right" do
       .main_header__right__box
         Edit
 
